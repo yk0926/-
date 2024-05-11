@@ -1,4 +1,4 @@
-package com.kyong.suixianglu.array;
+package com.kyong.suixianglu.a数组;
 
 public class b移除元素 {
     //24 移除元素

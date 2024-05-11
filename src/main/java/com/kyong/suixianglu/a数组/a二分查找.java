@@ -1,4 +1,4 @@
-package com.kyong.suixianglu.array;
+package com.kyong.suixianglu.a数组;
 
 public class a二分查找 {
     //704 二分查找

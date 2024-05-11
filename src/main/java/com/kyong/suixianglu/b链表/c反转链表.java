@@ -1,4 +1,4 @@
-package com.kyong.suixianglu.linkedLsit;
+package com.kyong.suixianglu.b链表;
 
 /**
  * @author kyong
