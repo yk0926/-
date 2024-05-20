@@ -23,21 +23,32 @@ public class g三数之和 {
     }
     public static List<List<Integer>> threeSum(int[] nums) {
         ArrayList<List<Integer>> res = new ArrayList<>();
-        HashMap<Integer,Integer> sumMap = new HashMap<>();
-        int len = nums.length;
-        for (int i = 0; i < len-2; i++) {
-            for (int j = i+1; j < len -1; j++) {
-                for (int k = j+1; k < len; k++) {
-                    if(nums[i]+nums[j]+nums[k]==0){
-                        int[] ints = {nums[i], nums[j], nums[k]};
-                        Arrays.sort(ints);
-                        if(sumMap.get(ints[0])!=null && Objects.equals(sumMap.get(ints[0]), ints[1])){
-                            continue;
-                        }else {
-                            sumMap.put(ints[0],ints[1]);
-                            res.add(Arrays.asList(nums[i],nums[j],nums[k]));
-                        }
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length-2; i++) {
+            if(nums[i]>0){
+                break;
+            }
+            if(i>0 && nums[i]==nums[i-1]){
+                continue;
+            }
+            int j = i + 1;
+            int k = nums.length - 1;
+            while (j<k) {
+                int sum = nums[i]+nums[j]+nums[k];
+                if(sum<0){
+                    j++;
+                }else if (sum>0){
+                    k -- ;
+                }else {
+                    res.add(Arrays.asList(nums[i], nums[j], nums[k]));
+                    while (j<k && nums[j]==nums[j+1]){
+                        j++;
                     }
+                    while (i<k && nums[k] == nums[k-1]){
+                        k--;
+                    }
+                    j++;
+                    k--;
                 }
             }
         }
