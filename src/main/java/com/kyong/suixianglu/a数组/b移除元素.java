@@ -1,7 +1,7 @@
 package com.kyong.suixianglu.a数组;
 
 public class b移除元素 {
-    //24 移除元素
+    //27 移除元素
     //自己写的
     public int removeElement(int[] nums, int val) {
         int len = nums.length;
