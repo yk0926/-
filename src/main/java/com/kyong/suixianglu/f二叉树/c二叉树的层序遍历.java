@@ -206,7 +206,7 @@ public class c二叉树的层序遍历 {
         return deep;
     }
 
-    //104. 二叉树的最小深度
+    //111. 二叉树的最小深度
     public int minDepth(TreeNode root) {
         if (root==null) return 0;
         LinkedList<TreeNode> queue = new LinkedList<>();
