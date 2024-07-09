@@ -18,32 +18,37 @@ public class f分割回文串 {
     List<List<String>> res = new ArrayList<>();
     LinkedList<String> temp = new LinkedList<>();
     public List<List<String>> partition(String s) {
-        if (StringUtils.isEmpty(s)){
+        if (StringUtils.isEmpty(s)) {
             return res;
         }
-
+        back(s, 0);
         return res;
     }
 
-    public void back(String s, int start, int len){
-        if(start + len == s.length()) {
-            res.add(temp);
+    public void back(String s, int start) {
+        if (start >= s.length()) {
+            res.add(new ArrayList<>(temp));
             return;
         }
-        for (int i = len+start; i < s.length(); i++) {
-            boolean flag = false;
-            String substring = s.substring(start, i);
-            String reverse = StringUtils.reverse(substring);
-            if(!substring.equals(reverse)){
-                back(s,i,len++);
+        for (int i = start; i < s.length(); i++) {
+            if(judge(s,start,i)){
+                String str = s.substring(start, i + 1);
+                temp.add(str);
+            }else {
+                continue;
             }
-            temp.add(s.substring(start, i));
-
+            back(s, i+1);
             temp.removeLast();
-
         }
+    }
 
-
+    public boolean judge(String s, int start, int end) {
+        for (int i = start, j = end; i < j; i++, j--) {
+            if (s.charAt(i) != s.charAt(j)) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }
