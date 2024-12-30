@@ -23,10 +23,8 @@ public class 环形DNA最小序列 {
     }
 
     public static String solution(String s) {
-        // Please write your code here
         if (s == null || s.length() == 0)
             return "";
-
         int n = s.length();
         int i = 0, j = 1, k = 0;
 
